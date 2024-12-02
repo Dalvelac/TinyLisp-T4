@@ -11,7 +11,13 @@ void mostrarmenu() {
     std::string opcion;
 
     while (true) {
-        std::cout << "\n========= MENU DE LA CALCULADORA =========" << std::endl;
+        std::cout << R"( _____                     __ _
+/__   \_   _ _ __  _   _  / /(_)___ _ __
+  / /\/ | | | '_ \| | | |/ / | / __| '_ \
+ / /  | |_| | | | | |_| / /__| \__ \ |_) |
+ \/    \__, |_| |_|\__, \____/_|___/ .__/
+       |___/       |___/           |_|    )" << std::endl;
+        std::cout << "==========================================" << std::endl;
         std::cout << "1. Realizar una operacion matematica" << std::endl;
         std::cout << "2. Cargar y ejecutar un script de operaciones" << std::endl;
         std::cout << "3. Probar funcionalidades avanzadas (Variant)" << std::endl;

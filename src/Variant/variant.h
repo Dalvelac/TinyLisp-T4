@@ -40,4 +40,7 @@ private:
     std::variant<Simbolo, Numero, Lista, Procedimiento> valor;
 };
 
+// Declaración de la función test_variant()
+void test_variant();
+
 #endif // VARIANT_H
