@@ -23,4 +23,4 @@ add_executable(Tinylisp_2
 )
 
 # Include nlohmann JSON library
-target_include_directories(Tinylisp_2 PRIVATE "C:/Users/v3rmu/Desktop/json-develop/single_include/nlohmann")
+target_include_directories(Tinylisp_2 PRIVATE "TUDIRECTORIO")
