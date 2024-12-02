@@ -337,6 +337,28 @@ public:
         return result;
     }
 
+    //Ejercicio 4 from_json_string
+    std::string from_json_string() const {
+        std::string result;
+        std::visit([&result](const auto& val) {
+            using T = std::decay_t<decltype(val)>;
+            if constexpr (std::is_same_v<T, Simbolo>) {
+                result = val;
+            } else if constexpr (std::is_same_v<T, Numero>) {
+                result = std::to_string(val);
+            } else if constexpr (std::is_same_v<T, Lista>) {
+                result = "[ ";
+                for (const auto& item : val) {
+                    result += item.from_json_string() + ", ";
+                }
+                result += "]";
+            } else if constexpr (std::is_same_v<T, Procedimiento>) {
+                result = "Procedimiento";
+            }
+        }, valor);
+        return result;
+    }
+
 private:
     TipoVariante valor;
 };
@@ -372,6 +394,12 @@ void test_variant() {
     std::cout << "v2 json_string: " << v2.json_string() << std::endl;
     std::cout << "v3 json_string: " << v3.json_string() << std::endl;
     std::cout << "v4 json_string: " << v4.json_string() << std::endl;
+
+    //Ejercicio 4 from_json_string
+    std::cout << "v1 from_json_string: " << v1.from_json_string() << std::endl;
+    std::cout << "v2 from_json_string: " << v2.from_json_string() << std::endl;
+    std::cout << "v3 from_json_string: " << v3.from_json_string() << std::endl;
+    std::cout << "v4 from_json_string: " << v4.from_json_string() << std::endl;
 
 }
 void mostrarguia() {
